@@ -535,6 +535,7 @@ GameObject:
   - component: {fileID: 442528497}
   - component: {fileID: 442528496}
   - component: {fileID: 442528498}
+  - component: {fileID: 442528499}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -587,6 +588,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inside: {fileID: 2100000, guid: 489bdcef7a199b84e8c69bb457087dd0, type: 2}
+--- !u!114 &442528499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442528495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6964019d8e34b8e4d8435a7e467f2582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &505380140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,7 +1597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8a35efe4f377140ba9442cf80ce1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 5
+  rotSpeed: 10
   tunel: {fileID: 1470365274}
 --- !u!1001 &1081034315
 PrefabInstance:
@@ -2059,7 +2072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf3b86812eeb0940bf6800d5c380191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 5
+  rotSpeed: 10
   tunel: {fileID: 1470365274}
 --- !u!1 &1440333520
 GameObject:
@@ -2218,8 +2231,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1022316571}
   pointText: {fileID: 397107504}
+  adCounter: 0
   animMan: {fileID: 87969669}
   controller: {fileID: 442528496}
+  adsManager: {fileID: 442528499}
 --- !u!54 &1440333528
 Rigidbody:
   m_ObjectHideFlags: 0

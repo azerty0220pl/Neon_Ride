@@ -17,10 +17,12 @@ public class PlayerCollision : MonoBehaviour
     public Text scoreText; //"Score:\n" or  "Previous score:\n" 
     public Text pointText; // Points number
     int points;
+    public int adCounter = 0;
 
     public Animator animMan; //animations
 
     public GameController controller;
+    public adsMan adsManager;
 
     private void Start()
     {
@@ -36,7 +38,13 @@ public class PlayerCollision : MonoBehaviour
             case "Obstacle":
                 controller.GameOver();
                 PlayerPrefs.SetInt("previous", points);
+                adCounter++;
                 Start();
+                if (adCounter >= 3)
+                {
+                    adsManager.showAd();
+                    adCounter = 0;
+                }
                 break;
             case "Gratification1":
                 if (PlayerPrefs.GetInt("state") == 1)
@@ -50,6 +58,7 @@ public class PlayerCollision : MonoBehaviour
             case "Final":
                 controller.GameWin();
                 PlayerPrefs.SetInt("previous", points);
+                adCounter = 0;
                 Start();
                 break;
             default:
