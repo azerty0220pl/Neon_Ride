@@ -20,7 +20,6 @@ public class adsMan : MonoBehaviour
         while (!Advertisement.IsReady("banner"))
         {
             yield return new WaitForSeconds(0.5f);
-            Debug.Log("Waiting");
         }
         Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
         Advertisement.Banner.Show("banner");

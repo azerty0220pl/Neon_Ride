@@ -3,7 +3,7 @@
  * NEON RIDE
  * 
  * By: Szymon Kokot
- * Last Modification: 06/03/21
+ * Last Modification: 28/03/21
  * 
  * Script is meant to rotate an obstacle.
  */
@@ -17,6 +17,6 @@ public class Obstacle2Turn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(obsRot, 0, 0);
+        transform.Rotate(obsRot * Time.deltaTime * 100, 0, 0);
     }
 }

@@ -3,7 +3,7 @@
  * NEON RIDE
  * 
  * By: Szymon Kokot
- * Last Modification: 14/03/21
+ * Last Modification: 28/03/21
  * 
  * Cheks character collisions and adds points, or end game
  */
@@ -17,9 +17,11 @@ public class PlayerCollision : MonoBehaviour
     public Text scoreText; //"Score:\n" or  "Previous score:\n" 
     public Text pointText; // Points number
     int points;
-    public int adCounter = 0;
+    private int adCounter = 0;
+    public int perfectCounter = 0; // Perfects in a row
 
-    public Animator animMan; //animations
+    public Animator animMan; //animations +1 and +3
+    public Animator animMan2; //animation x2
 
     public GameController controller;
     public adsMan adsManager;
@@ -27,6 +29,7 @@ public class PlayerCollision : MonoBehaviour
     private void Start()
     {
         points = 0;
+        perfectCounter = 0;
         scoreText.text = "Previous score\n";
         pointText.text = "" + PlayerPrefs.GetInt("previous");
     }
@@ -50,21 +53,31 @@ public class PlayerCollision : MonoBehaviour
                 if (PlayerPrefs.GetInt("state") == 1)
                 {
                     points++;
+                    perfectCounter -= perfectCounter == 0 ? 0 : 1;
+                    if (perfectCounter >= 5)
+                    {
+                        points += 1;
+                        animMan2.Play("x2");
+                    }
                     scoreText.text = "Score:";
                     pointText.text = "" + points;
+
                     animMan.Play("anim+1");
                 }
                 break;
             case "Final":
                 controller.GameWin();
                 PlayerPrefs.SetInt("previous", points);
-                adCounter = 0;
                 Start();
                 break;
             default:
                 if (PlayerPrefs.GetInt("state") == 1)
                 {
+                    perfectCounter += 2;
                     points += 2;
+                    if (perfectCounter >= 5)
+                        points += 2;
+
                     scoreText.text = "Score:";
                     pointText.text = "" + points;
                     animMan.Play("anim+3");
