@@ -1,4 +1,14 @@
-﻿using System.Collections;
+﻿/*
+ * Ads Manager
+ * NEON RIDE
+ * 
+ * By: Szymon Kokot
+ * Last Modification: 29/03/21
+ * 
+ * Banner ad always showing, show skipable ad
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
