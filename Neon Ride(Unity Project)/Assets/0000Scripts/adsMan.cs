@@ -3,7 +3,7 @@
  * NEON RIDE
  * 
  * By: Szymon Kokot
- * Last Modification: 29/03/21
+ * Last Modification: 08/04/21
  * 
  * Banner ad always showing, show skipable ad
  */
@@ -17,10 +17,9 @@ public class adsMan : MonoBehaviour
 {
     private void Start()
     {
-        Advertisement.Initialize("4066191", true);
-
         if (PlayerPrefs.GetInt("premium") == 0)
         {
+            Advertisement.Initialize("4066191", true);
             StartCoroutine(ShowBannerWhenReady());
         }
     }
@@ -37,7 +36,7 @@ public class adsMan : MonoBehaviour
 
     public void showAd()
     {
-        if (Advertisement.IsReady("video"))
+        if (Advertisement.IsReady("video") && PlayerPrefs.GetInt("premium") == 0)
             Advertisement.Show("video");
     }
 }

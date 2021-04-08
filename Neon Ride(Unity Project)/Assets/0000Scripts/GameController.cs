@@ -3,7 +3,7 @@
  * NEON RIDE
  * 
  * By: Szymon Kokot
- * Last Modification: 24/03/21
+ * Last Modification: 08/04/21
  * 
  * General game controller.
  * Game Statuses:
@@ -11,10 +11,8 @@
  *  0 - Idle
  *  1 - In game
  */
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -25,6 +23,10 @@ public class GameController : MonoBehaviour
     public GameObject mainPanel; //main menu
     public GameObject gamePanel; //contains game controls
     public GameObject overPanel; //game over screen
+
+    //Score texts
+    public Text scoreText;
+    public Text pointText;
 
     private void Start()
     {
@@ -37,6 +39,9 @@ public class GameController : MonoBehaviour
     {
         mainPanel.SetActive(false);
         gamePanel.SetActive(true);
+
+        scoreText.text = "Score:";
+        pointText.text = "0";
 
         PlayerPrefs.SetInt("state", 1);
     }
@@ -52,13 +57,9 @@ public class GameController : MonoBehaviour
     //Called from PlayerCollision class
     public void GameWin()
     {
-        gamePanel.SetActive(false);
-        mainPanel.SetActive(true);
         obsMan.DisableAll();
         PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
         LoadLevel(PlayerPrefs.GetInt("level"));
-
-        PlayerPrefs.SetInt("state", 0);
     }
     //Called by button from game over menu
     public void RestartGame()
@@ -85,47 +86,47 @@ public class GameController : MonoBehaviour
                 insideChanger.changeColor(new Color(1, 1, 1, 1));
                 break;
             case 1:
-                tunel.SetSpeed(8);
+                tunel.SetSpeed(9);
                 PlayerPrefs.SetInt("levelScore", 20);
                 insideChanger.changeColor(new Color(0.75f, 1, 1, 1));
                 break;
             case 2:
-                tunel.SetSpeed(9);
+                tunel.SetSpeed(10);
                 PlayerPrefs.SetInt("levelScore", 20);
                 insideChanger.changeColor(new Color(0.5f, 1, 1, 1));
                 break;
             case 3:
-                tunel.SetSpeed(9);
+                tunel.SetSpeed(10);
                 PlayerPrefs.SetInt("levelScore", 25);
                 insideChanger.changeColor(new Color(0.25f, 1, 1, 1));
                 break;
             case 4:
-                tunel.SetSpeed(9);
+                tunel.SetSpeed(10);
                 PlayerPrefs.SetInt("levelScore", 25);
                 insideChanger.changeColor(new Color(0, 1, 1, 1));
                 break;
             case 5:
-                tunel.SetSpeed(9);
+                tunel.SetSpeed(10);
                 PlayerPrefs.SetInt("levelScore", 25);
                 insideChanger.changeColor(new Color(0, 0.75f, 1, 1));
                 break;
             case 6:
-                tunel.SetSpeed(10);
+                tunel.SetSpeed(10.5f);
                 PlayerPrefs.SetInt("levelScore", 30);
                 insideChanger.changeColor(new Color(0, 0.5f, 1, 1));
                 break;
             case 7:
-                tunel.SetSpeed(10);
+                tunel.SetSpeed(10.5f);
                 PlayerPrefs.SetInt("levelScore", 30);
                 insideChanger.changeColor(new Color(0, 0.25f, 1, 1));
                 break;
             case 8:
-                tunel.SetSpeed(10);
+                tunel.SetSpeed(11);
                 PlayerPrefs.SetInt("levelScore", 40);
                 insideChanger.changeColor(new Color(0, 0, 1, 1));
                 break;
             case 9:
-                tunel.SetSpeed(10);
+                tunel.SetSpeed(11);
                 PlayerPrefs.SetInt("levelScore", 50);
                 insideChanger.changeColor(new Color(0.25f, 0, 1, 1));
                 break;
@@ -140,12 +141,12 @@ public class GameController : MonoBehaviour
                 insideChanger.changeColor(new Color(0.75f, 0, 1, 1));
                 break;
             case 12:
-                tunel.SetSpeed(11);
+                tunel.SetSpeed(11.5f);
                 PlayerPrefs.SetInt("levelScore", 80);
                 insideChanger.changeColor(new Color(1, 0, 1, 1));
                 break;
             case 13:
-                tunel.SetSpeed(11);
+                tunel.SetSpeed(11.5f);
                 PlayerPrefs.SetInt("levelScore", 90);
                 insideChanger.changeColor(new Color(1, 0, 0.75f, 1));
                 break;
@@ -232,6 +233,11 @@ public class GameController : MonoBehaviour
             case 30:
                 tunel.SetSpeed(20);
                 PlayerPrefs.SetInt("levelScore", 200);
+                insideChanger.changeColor(new Color(1, 1, 1, 1));
+                break;
+            default:
+                tunel.SetSpeed(25);
+                PlayerPrefs.SetInt("levelScore", 2002);
                 insideChanger.changeColor(new Color(1, 1, 1, 1));
                 break;
         }

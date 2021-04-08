@@ -7,9 +7,8 @@
  * 
  * Cheks character collisions and adds points, or end game
  */
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 public class PlayerCollision : MonoBehaviour
@@ -42,12 +41,13 @@ public class PlayerCollision : MonoBehaviour
                 controller.GameOver();
                 PlayerPrefs.SetInt("previous", points);
                 adCounter++;
-                Start();
                 if (adCounter >= 3)
                 {
                     adsManager.showAd();
                     adCounter = 0;
                 }
+                Analytics.CustomEvent("GameOver" + PlayerPrefs.GetInt("level"));
+                Start();
                 break;
             case "Gratification1":
                 if (PlayerPrefs.GetInt("state") == 1)
@@ -59,7 +59,6 @@ public class PlayerCollision : MonoBehaviour
                         points += 1;
                         animMan2.Play("x2");
                     }
-                    scoreText.text = "Score:";
                     pointText.text = "" + points;
 
                     animMan.Play("anim+1");
@@ -68,7 +67,9 @@ public class PlayerCollision : MonoBehaviour
             case "Final":
                 controller.GameWin();
                 PlayerPrefs.SetInt("previous", points);
-                Start();
+                Analytics.CustomEvent("GameWin" + PlayerPrefs.GetInt("level"));
+                points = 0;
+                pointText.text = "" + points;
                 break;
             default:
                 if (PlayerPrefs.GetInt("state") == 1)
@@ -78,7 +79,6 @@ public class PlayerCollision : MonoBehaviour
                     if (perfectCounter >= 5)
                         points += 2;
 
-                    scoreText.text = "Score:";
                     pointText.text = "" + points;
                     animMan.Play("anim+3");
                 }

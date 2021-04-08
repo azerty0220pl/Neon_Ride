@@ -7,9 +7,6 @@
  * 
  * Changes Inside color
  */
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InsideMaterialChanger : MonoBehaviour

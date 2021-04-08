@@ -18,6 +18,21 @@
   <defs
      id="defs2">
     <rect
+       x="-91.24916"
+       y="-102.30108"
+       width="72.262534"
+       height="64.611207"
+       id="rect194" />
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect186"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Jeśli po konwersji przycięcia na ścieżki nie zostanie spłaszczony wynik, użyj reguły wypełniania w oknie dialogowym &lt;b&gt;wypełnienie i obrys&lt;/b&gt; ." />
+    <rect
        x="-428.01526"
        y="-131.45038"
        width="110.61069"
@@ -305,6 +320,40 @@
        width="110.61069"
        height="73.740457"
        id="rect255" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath182">
+      <circle
+         style="display:none;fill:#000000;stroke:#000000;stroke-width:0.255936;stroke-linejoin:round"
+         id="circle184"
+         cx="-91.836761"
+         cy="7.9138641"
+         r="39.872032"
+         d="M -51.964729,7.9138641 A 39.872032,39.872032 0 0 1 -91.836761,47.785896 39.872032,39.872032 0 0 1 -131.70879,7.9138641 39.872032,39.872032 0 0 1 -91.836761,-31.958168 39.872032,39.872032 0 0 1 -51.964729,7.9138641 Z" />
+      <path
+         id="lpe_path-effect186"
+         style="fill:#000000;stroke:#000000;stroke-width:0.255936;stroke-linejoin:round"
+         class="powerclip"
+         d="M -146.83676,-47.086135 H -36.836762 V 62.913863 H -146.83676 Z M -51.964729,7.9138641 A 39.872032,39.872032 0 0 0 -91.836761,-31.958168 39.872032,39.872032 0 0 0 -131.70879,7.9138641 39.872032,39.872032 0 0 0 -91.836761,47.785896 39.872032,39.872032 0 0 0 -51.964729,7.9138641 Z" />
+    </clipPath>
+    <rect
+       x="-91.24916"
+       y="-102.30108"
+       width="72.262534"
+       height="64.611207"
+       id="rect228" />
+    <rect
+       x="-91.24916"
+       y="-102.30108"
+       width="72.262534"
+       height="64.611207"
+       id="rect246" />
+    <rect
+       x="-91.24916"
+       y="-102.30108"
+       width="72.262534"
+       height="64.611207"
+       id="rect248" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -313,9 +362,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.23341539"
-     inkscape:cx="1764.4347"
-     inkscape:cy="-227.96483"
+     inkscape:zoom="1"
+     inkscape:cx="-40.857692"
+     inkscape:cy="-163.34195"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -324,7 +373,8 @@
      inkscape:window-height="1001"
      inkscape:window-x="-9"
      inkscape:window-y="41"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:snap-global="false" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -803,5 +853,56 @@
          x="-428.01562"
          y="-121.79571"><tspan
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">x2</tspan></tspan></text>
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0.291042;stroke-linejoin:round"
+       id="rect172"
+       width="78.213562"
+       height="78.213562"
+       x="20.40354"
+       y="117.88711" />
+    <path
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.34577;stroke-linejoin:round"
+       id="path176"
+       clip-path="url(#clipPath182)"
+       inkscape:path-effect="#path-effect186"
+       sodipodi:type="arc"
+       sodipodi:cx="-91.836761"
+       sodipodi:cy="7.9138641"
+       sodipodi:rx="49.827114"
+       sodipodi:ry="49.827114"
+       d="M -42.009647,7.9138641 A 49.827114,49.827114 0 0 1 -91.836761,57.740978 49.827114,49.827114 0 0 1 -141.66388,7.9138641 49.827114,49.827114 0 0 1 -91.836761,-41.91325 49.827114,49.827114 0 0 1 -42.009647,7.9138641 Z"
+       transform="translate(21.537066,-89.548862)"
+       inkscape:export-xdpi="130.048"
+       inkscape:export-ydpi="130.048" />
+    <text
+       xml:space="preserve"
+       id="text238"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect246);fill:#ffffff;fill-opacity:1;stroke:#ffffff;"
+       transform="matrix(2.4865732,0,0,2.4865732,133.71483,142.08923)"
+       inkscape:export-xdpi="130.048"
+       inkscape:export-ydpi="130.048"><tspan
+         x="-91.25"
+         y="-92.645316"><tspan
+           style="fill:#ffffff;stroke:#ffffff">NO</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text244"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect248);fill:#ffffff;fill-opacity:1;stroke:#ffffff;"
+       transform="matrix(2.4865732,0,0,2.4865732,126.42905,171.73024)"
+       inkscape:export-xdpi="130.048"
+       inkscape:export-ydpi="130.048"><tspan
+         x="-91.25"
+         y="-92.645316"><tspan
+           style="fill:#ffffff;stroke:#ffffff">ADS</tspan></tspan></text>
+    <rect
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.21482;stroke-linejoin:round"
+       id="rect190"
+       width="9.456893"
+       height="96.502319"
+       x="3.2868195"
+       y="-155.68521"
+       transform="rotate(-45)"
+       inkscape:export-xdpi="130.048"
+       inkscape:export-ydpi="130.048" />
   </g>
 </svg>

@@ -7,8 +7,6 @@
  * 
  * Methods to control obstacles from ALL section.
  */
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstaclesManager : MonoBehaviour

@@ -3,7 +3,7 @@
  * NEON RIDE
  * 
  * By: Szymon Kokot
- * Last modification: 14/03/21
+ * Last modification: 08/04/21
  * 
  * Script attached to "Tunel" component. Responsible for advance in tunel and obstacle change if needed.
  */
@@ -23,7 +23,7 @@ public class Tunel : MonoBehaviour
     private int i = 0;
 
     //Changes speed of all tunel sections. Called from GameController class
-    public void SetSpeed(int speed)
+    public void SetSpeed(float speed)
     {
         //speed == 0 iff game over; stops the tunel and makes it go back a little bit back.
         // if speed != 0; just changes speed of all tunel sections
