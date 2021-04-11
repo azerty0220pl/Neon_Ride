@@ -630,7 +630,6 @@ GameObject:
   - component: {fileID: 442528496}
   - component: {fileID: 442528498}
   - component: {fileID: 442528499}
-  - component: {fileID: 442528500}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -695,18 +694,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6964019d8e34b8e4d8435a7e467f2582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &442528500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442528495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 244a979179433754f88d1641aff40d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &505380140
@@ -2815,6 +2802,7 @@ GameObject:
   - component: {fileID: 1827643259}
   - component: {fileID: 1827643258}
   - component: {fileID: 1827643257}
+  - component: {fileID: 1827643260}
   m_Layer: 5
   m_Name: NoAds
   m_TagString: Untagged
@@ -2884,7 +2872,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 442528500}
+      - m_Target: {fileID: 1827643260}
         m_MethodName: buyPremium
         m_Mode: 1
         m_Arguments:
@@ -2932,6 +2920,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827643255}
   m_CullTransparentMesh: 0
+--- !u!114 &1827643260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827643255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244a979179433754f88d1641aff40d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1898392548
 GameObject:
   m_ObjectHideFlags: 0

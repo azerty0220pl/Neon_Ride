@@ -3,7 +3,7 @@
  * NEON RIDE
  * 
  * By: Szymon Kokot
- * Last modification: 07/04/21
+ * Last modification: 09/04/21
  * 
  * Buy premium
  */
@@ -17,15 +17,17 @@ public class PurchaseMan : MonoBehaviour, IStoreListener
     private static IStoreController m_StoreController;
     private static IExtensionProvider m_StoreExtensionProvider;
 
-    public static string premium = "premium";
+    public static string premium = "neonridenoads";
 
     void Start()
     {
+        Debug.Log("Start()");
         if(PlayerPrefs.GetInt("premium") == 1)
-            gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
 
         if (m_StoreController == null && m_StoreExtensionProvider == null)
         {
+            Debug.Log("inside Start() if");
             var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
             builder.AddProduct(premium, ProductType.NonConsumable);
 
@@ -35,16 +37,19 @@ public class PurchaseMan : MonoBehaviour, IStoreListener
 
     public void buyPremium()
     {
-        if (m_StoreController == null && m_StoreExtensionProvider == null)
+        Debug.Log("Trying to start purchase...");
+        if (m_StoreController != null && m_StoreExtensionProvider != null)
         {
+            Debug.Log("Starting purchase..." + m_StoreController.products.WithID(premium));
             Product product = m_StoreController.products.WithID(premium); 
 
             if (product != null && product.availableToPurchase)
             {
+                Debug.Log("Purchasing...");
                 m_StoreController.InitiatePurchase(product);
                 PlayerPrefs.SetInt("premium", 1);
                 Advertisement.Banner.Hide();
-                gameObject.SetActive(false);
+                this.gameObject.SetActive(false);
             }
             else
             {
@@ -53,6 +58,7 @@ public class PurchaseMan : MonoBehaviour, IStoreListener
         }
         else
         {
+            Debug.Log("Not able to start the purchase :(");
             Start();
         }
     }
