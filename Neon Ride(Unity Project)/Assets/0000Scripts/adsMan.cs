@@ -19,7 +19,7 @@ public class adsMan : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("premium") == 0)
         {
-            Advertisement.Initialize("4066191", true);
+            Advertisement.Initialize("4066191", false);
             StartCoroutine(ShowBannerWhenReady());
         }
     }
