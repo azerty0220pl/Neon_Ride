@@ -9,6 +9,7 @@
  */
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Purchasing;
 using UnityEngine.Advertisements;
 
@@ -19,15 +20,16 @@ public class PurchaseMan : MonoBehaviour, IStoreListener
 
     public static string premium = "neonridenoads";
 
+    public GameObject errorObj;
+    public Text errorText;
+
     void Start()
     {
-        Debug.Log("Start()");
-        if(PlayerPrefs.GetInt("premium") == 1)
+        if(PlayerPrefs.GetInt("premium") == 2002)
             this.gameObject.SetActive(false);
 
         if (m_StoreController == null && m_StoreExtensionProvider == null)
         {
-            Debug.Log("inside Start() if");
             var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
             builder.AddProduct(premium, ProductType.NonConsumable);
 
@@ -37,28 +39,25 @@ public class PurchaseMan : MonoBehaviour, IStoreListener
 
     public void buyPremium()
     {
-        Debug.Log("Trying to start purchase...");
         if (m_StoreController != null && m_StoreExtensionProvider != null)
         {
-            Debug.Log("Starting purchase..." + m_StoreController.products.WithID(premium));
             Product product = m_StoreController.products.WithID(premium); 
 
             if (product != null && product.availableToPurchase)
             {
-                Debug.Log("Purchasing...");
                 m_StoreController.InitiatePurchase(product);
-                PlayerPrefs.SetInt("premium", 1);
-                Advertisement.Banner.Hide();
-                this.gameObject.SetActive(false);
             }
             else
             {
-                Debug.Log("BuyProductID: FAIL. Not purchasing product, either is not found or is not available for purchase");
+                errorObj.SetActive(true);
+                errorText.text = "Product not found.\nSorry for the trouble.";
             }
         }
         else
         {
-            Debug.Log("Not able to start the purchase :(");
+            errorObj.SetActive(true);
+            errorText.text = "Could not buy product. Please make sure you have internet connection and if you do have, please wait for the game to connect to Google Play." +
+                "\n Sorry for the trouble.";
             Start();
         }
     }
@@ -88,6 +87,11 @@ public class PurchaseMan : MonoBehaviour, IStoreListener
         if (string.Equals(args.purchasedProduct.definition.id, premium, StringComparison.Ordinal))
         {
             Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
+            PlayerPrefs.SetInt("premium", 2002);
+            Advertisement.Banner.Hide();
+            this.gameObject.SetActive(false);
+            errorObj.SetActive(true);
+            errorText.text = "Thank you for supporting me :)";
             // TODO: The non-consumable item has been successfully purchased, grant this item to the player.
         }
         return PurchaseProcessingResult.Complete;

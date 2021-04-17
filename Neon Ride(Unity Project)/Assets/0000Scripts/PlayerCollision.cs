@@ -3,7 +3,7 @@
  * NEON RIDE
  * 
  * By: Szymon Kokot
- * Last Modification: 28/03/21
+ * Last Modification: 17/04/21
  * 
  * Cheks character collisions and adds points, or end game
  */
@@ -19,8 +19,13 @@ public class PlayerCollision : MonoBehaviour
     private int adCounter = 0;
     public int perfectCounter = 0; // Perfects in a row
 
-    public Animator animMan; //animations +1 and +3
-    public Animator animMan2; //animation x2
+    public Animator animMan1; //animations +1
+    public Animator animMan2; //animations +3
+    public Animator animMan3; //animation x2
+
+    public ParticleSystem partSys1;
+    public ParticleSystem partSys2;
+    public ParticleSystem partSys4;
 
     public GameController controller;
     public adsMan adsManager;
@@ -38,9 +43,10 @@ public class PlayerCollision : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Obstacle":
+                if (PlayerPrefs.GetInt("state") == 1)
+                    adCounter++;
                 controller.GameOver();
                 PlayerPrefs.SetInt("previous", points);
-                adCounter++;
                 if (adCounter >= 3)
                 {
                     adsManager.showAd();
@@ -49,6 +55,24 @@ public class PlayerCollision : MonoBehaviour
                 Analytics.CustomEvent("GameOver" + PlayerPrefs.GetInt("level"));
                 Start();
                 break;
+            case "Final":
+                controller.GameWin();
+                PlayerPrefs.SetInt("previous", points);
+                Analytics.CustomEvent("GameWin" + PlayerPrefs.GetInt("level"));
+                points = 0;
+                pointText.text = "" + points;
+                partSys4.Play();
+                break;
+        }
+
+        if (points >= PlayerPrefs.GetInt("levelScore"))
+            PlayerPrefs.SetInt("final", 1);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        switch (other.gameObject.tag)
+        {
             case "Gratification1":
                 if (PlayerPrefs.GetInt("state") == 1)
                 {
@@ -57,19 +81,14 @@ public class PlayerCollision : MonoBehaviour
                     if (perfectCounter >= 5)
                     {
                         points += 1;
-                        animMan2.Play("x2");
+                        animMan3.Play("x2");
+                        partSys2.Play();
                     }
                     pointText.text = "" + points;
 
-                    animMan.Play("anim+1");
+                    animMan1.Play("anim+1");
+                    partSys1.Play();
                 }
-                break;
-            case "Final":
-                controller.GameWin();
-                PlayerPrefs.SetInt("previous", points);
-                Analytics.CustomEvent("GameWin" + PlayerPrefs.GetInt("level"));
-                points = 0;
-                pointText.text = "" + points;
                 break;
             default:
                 if (PlayerPrefs.GetInt("state") == 1)
@@ -80,7 +99,8 @@ public class PlayerCollision : MonoBehaviour
                         points += 2;
 
                     pointText.text = "" + points;
-                    animMan.Play("anim+3");
+                    animMan1.StopPlayback();
+                    animMan2.Play("anim+3");
                 }
                 break;
         }

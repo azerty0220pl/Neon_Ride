@@ -3,7 +3,7 @@
  * NEON RIDE
  * 
  * By: Szymon Kokot
- * Last Modification: 08/04/21
+ * Last Modification: 17/04/21
  * 
  * General game controller.
  * Game Statuses:
@@ -32,6 +32,9 @@ public class GameController : MonoBehaviour
     {
         PlayerPrefs.SetInt("state", 0);
         LoadLevel(PlayerPrefs.GetInt("level"));
+
+        QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = 120;
     }
 
     //Called by button from Main Menu
@@ -53,6 +56,7 @@ public class GameController : MonoBehaviour
         LoadLevel(-1);
 
         PlayerPrefs.SetInt("state", -1);
+        PlayerPrefs.SetInt("final", 0);
     }
     //Called from PlayerCollision class
     public void GameWin()
