@@ -3,7 +3,7 @@
  * NEON RIDE
  * 
  * By: Szymon Kokot
- * Last modification: 09/04/21
+ * Last modification: 18/04/21
  * 
  * Buy premium
  */
@@ -25,9 +25,6 @@ public class PurchaseMan : MonoBehaviour, IStoreListener
 
     void Start()
     {
-        if(PlayerPrefs.GetInt("premium") == 2002)
-            this.gameObject.SetActive(false);
-
         if (m_StoreController == null && m_StoreExtensionProvider == null)
         {
             var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
@@ -35,6 +32,9 @@ public class PurchaseMan : MonoBehaviour, IStoreListener
 
             UnityPurchasing.Initialize(this, builder);
         }
+
+        if (PlayerPrefs.GetInt("premium") == 2002)
+            this.gameObject.SetActive(false);
     }
 
     public void buyPremium()

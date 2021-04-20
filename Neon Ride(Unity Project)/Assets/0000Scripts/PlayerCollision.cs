@@ -16,6 +16,7 @@ public class PlayerCollision : MonoBehaviour
     public Text scoreText; //"Score:\n" or  "Previous score:\n" 
     public Text pointText; // Points number
     int points;
+    int realPoints;
     private int adCounter = 0;
     public int perfectCounter = 0; // Perfects in a row
 
@@ -33,6 +34,7 @@ public class PlayerCollision : MonoBehaviour
     private void Start()
     {
         points = 0;
+        realPoints = 0;
         perfectCounter = 0;
         scoreText.text = "Previous score\n";
         pointText.text = "" + PlayerPrefs.GetInt("previous");
@@ -59,13 +61,13 @@ public class PlayerCollision : MonoBehaviour
                 controller.GameWin();
                 PlayerPrefs.SetInt("previous", points);
                 Analytics.CustomEvent("GameWin" + PlayerPrefs.GetInt("level"));
-                points = 0;
+                realPoints = 0;
                 pointText.text = "" + points;
                 partSys4.Play();
                 break;
         }
 
-        if (points >= PlayerPrefs.GetInt("levelScore"))
+        if (realPoints >= PlayerPrefs.GetInt("levelScore"))
             PlayerPrefs.SetInt("final", 1);
     }
 
@@ -77,10 +79,12 @@ public class PlayerCollision : MonoBehaviour
                 if (PlayerPrefs.GetInt("state") == 1)
                 {
                     points++;
+                    realPoints++;
                     perfectCounter -= perfectCounter == 0 ? 0 : 1;
                     if (perfectCounter >= 5)
                     {
                         points += 1;
+                        realPoints += 1;
                         animMan3.Play("x2");
                         partSys2.Play();
                     }
@@ -95,6 +99,7 @@ public class PlayerCollision : MonoBehaviour
                 {
                     perfectCounter += 2;
                     points += 2;
+                    realPoints += 2;
                     if (perfectCounter >= 5)
                         points += 2;
 
@@ -104,8 +109,5 @@ public class PlayerCollision : MonoBehaviour
                 }
                 break;
         }
-
-        if (points >= PlayerPrefs.GetInt("levelScore"))
-            PlayerPrefs.SetInt("final", 1);
     }
 }
