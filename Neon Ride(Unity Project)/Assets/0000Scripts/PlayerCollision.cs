@@ -3,7 +3,7 @@
  * NEON RIDE
  * 
  * By: Szymon Kokot
- * Last Modification: 17/04/21
+ * Last Modification: 24/04/21
  * 
  * Cheks character collisions and adds points, or end game
  */
@@ -55,12 +55,14 @@ public class PlayerCollision : MonoBehaviour
                     adCounter = 0;
                 }
                 Analytics.CustomEvent("GameOver" + PlayerPrefs.GetInt("level"));
+                TinySauce.OnGameFinished(false, points, PlayerPrefs.GetInt("level").ToString()); ;
                 Start();
                 break;
             case "Final":
                 controller.GameWin();
                 PlayerPrefs.SetInt("previous", points);
-                Analytics.CustomEvent("GameWin" + PlayerPrefs.GetInt("level"));
+                Analytics.CustomEvent("GameWin" + PlayerPrefs.GetInt("level")); 
+                TinySauce.OnGameFinished(true, points, PlayerPrefs.GetInt("level").ToString());
                 realPoints = 0;
                 pointText.text = "" + points;
                 partSys4.Play();

@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f78192cec1344d83a177ac5e6139ab3, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier: 
+  TotalMessagesSubmitted: 0
+  TotalMessagesFailed: 0
+  DesignMessagesSubmitted: 0
+  DesignMessagesFailed: 0
+  QualityMessagesSubmitted: 0
+  QualityMessagesFailed: 0
+  ErrorMessagesSubmitted: 0
+  ErrorMessagesFailed: 0
+  BusinessMessagesSubmitted: 0
+  BusinessMessagesFailed: 0
+  UserMessagesSubmitted: 0
+  UserMessagesFailed: 0
+  CustomArea: 
+  gameKey:
+  - 364c2ec4697b88055b410122787c9239
+  secretKey:
+  - 05cc754ecd8ab1e021f1c16b7ccbc2df49d9388e
+  Build:
+  - 2.1.2
+  SelectedPlatformOrganization:
+  - 
+  SelectedPlatformStudio:
+  - 
+  SelectedPlatformGame:
+  - 
+  SelectedPlatformGameID: ffffffff
+  SelectedOrganization: 00000000
+  SelectedStudio: 00000000
+  SelectedGame: 00000000
+  NewVersion: 6.5.2
+  Changes: '6.5.2
+
+    - fixed crashes for android devices without google play API
+    (android)
+
+
+    6.5.1
+
+    - added support for OAID (android)
+
+    - added missing
+    export function for UWP lib (uwp)
+
+
+    6.5.0
+
+    - added app tracking transparency
+    request function (ios)
+
+
+    6.4.1
+
+    - added idfa consent status field to
+    events (ios)
+
+
+    6.4.0
+
+    - added support for unity package manager
+
+
+    6.3.14
+
+    -
+    fixed playmaker scripts
+
+
+    6.3.13
+
+    - fixed compiler errors for 2017.1
+
+    -
+    updated client ts validator
+
+
+    6.3.12
+
+    - changed AppTrackingTransparency
+    dependency to be optional for iOS
+
+
+    6.3.11
+
+    - fixed dependencies for
+    iOS (min. XCode 12 required)'
+  SignUpOpen: 0
+  StudioName: Azerty0220pl
+  GameName: Neon Ride
+  OrganizationName: 
+  OrganizationIdentifier: 
+  EmailGA: azerty0220pl@gmail.com
+  IntroScreen: 0
+  InfoLogEditor: 0
+  InfoLogBuild: 0
+  VerboseLogBuild: 0
+  UseManualSessionHandling: 1
+  SendExampleGameDataToMyGame: 0
+  UseIMEI: 0
+  InternetConnectivity: 0
+  CustomDimensions01: []
+  CustomDimensions02: []
+  CustomDimensions03: []
+  ResourceItemTypes: []
+  ResourceCurrencies: []
+  LastCreatedGamePlatform: -1
+  Platforms: 0b000000
+  CurrentInspectorState: 1
+  ClosedHints: 
+  DisplayHints: 0
+  DisplayHintsScrollState: {x: 0, y: 0}
+  Logo: {fileID: 0}
+  UpdateIcon: {fileID: 0}
+  InfoIcon: {fileID: 0}
+  DeleteIcon: {fileID: 0}
+  GameIcon: {fileID: 0}
+  HomeIcon: {fileID: 0}
+  InstrumentIcon: {fileID: 0}
+  QuestionIcon: {fileID: 0}
+  UserIcon: {fileID: 0}
+  AmazonIcon: {fileID: 0}
+  GooglePlayIcon: {fileID: 0}
+  iosIcon: {fileID: 0}
+  macIcon: {fileID: 0}
+  windowsPhoneIcon: {fileID: 0}
+  UsePlayerSettingsBuildNumber: 0
+  SubmitErrors: 1
+  MaxErrorCount: 10
+  SubmitFpsAverage: 1
+  SubmitFpsCritical: 1
+  IncludeGooglePlay: 1
+  FpsCriticalThreshold: 20
+  FpsCirticalSubmitInterval: 1
+  PlatformFoldOut: 01
+  CustomDimensions01FoldOut: 0
+  CustomDimensions02FoldOut: 0
+  CustomDimensions03FoldOut: 0
+  ResourceItemTypesFoldOut: 0
+  ResourceCurrenciesFoldOut: 0
