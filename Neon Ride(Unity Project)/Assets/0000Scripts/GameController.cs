@@ -3,7 +3,7 @@
  * NEON RIDE
  * 
  * By: Szymon Kokot
- * Last Modification: 24/04/21
+ * Last Modification: 17/04/21
  * 
  * General game controller.
  * Game Statuses:
@@ -47,7 +47,6 @@ public class GameController : MonoBehaviour
         pointText.text = "0";
 
         PlayerPrefs.SetInt("state", 1);
-        TinySauce.OnGameStarted(levelNumber: PlayerPrefs.GetInt("level").ToString());
     }
     //Called from PlayerCollision class
     public void GameOver()
@@ -65,7 +64,6 @@ public class GameController : MonoBehaviour
         obsMan.DisableAll();
         PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
         LoadLevel(PlayerPrefs.GetInt("level"));
-        TinySauce.OnGameStarted(levelNumber: PlayerPrefs.GetInt("level").ToString());
     }
     //Called by button from game over menu
     public void RestartGame()
