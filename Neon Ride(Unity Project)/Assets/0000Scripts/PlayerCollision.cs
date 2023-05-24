@@ -8,7 +8,6 @@
  * Cheks character collisions and adds points, or end game
  */
 using UnityEngine;
-using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 public class PlayerCollision : MonoBehaviour
@@ -17,7 +16,7 @@ public class PlayerCollision : MonoBehaviour
     public Text pointText; // Points number
     int points;
     int realPoints;
-    private int adCounter = 0;
+    //private int adCounter = 0;
     public int perfectCounter = 0; // Perfects in a row
 
     public Animator animMan1; //animations +1
@@ -29,7 +28,7 @@ public class PlayerCollision : MonoBehaviour
     public ParticleSystem partSys4;
 
     public GameController controller;
-    public adsMan adsManager;
+    //public adsMan adsManager;
 
     private void Start()
     {
@@ -45,22 +44,22 @@ public class PlayerCollision : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Obstacle":
-                if (PlayerPrefs.GetInt("state") == 1)
-                    adCounter++;
+                /*if (PlayerPrefs.GetInt("state") == 1)
+                    adCounter++;*/
                 controller.GameOver();
                 PlayerPrefs.SetInt("previous", points);
-                if (adCounter >= 3)
+                /*if (adCounter >= 3)
                 {
                     adsManager.showAd();
                     adCounter = 0;
-                }
-                Analytics.CustomEvent("GameOver" + PlayerPrefs.GetInt("level"));
+                }*/
+                //Analytics.CustomEvent("GameOver" + PlayerPrefs.GetInt("level"));
                 Start();
                 break;
             case "Final":
                 controller.GameWin();
                 PlayerPrefs.SetInt("previous", points);
-                Analytics.CustomEvent("GameWin" + PlayerPrefs.GetInt("level"));
+                //Analytics.CustomEvent("GameWin" + PlayerPrefs.GetInt("level"));
                 realPoints = 0;
                 pointText.text = "" + points;
                 partSys4.Play();

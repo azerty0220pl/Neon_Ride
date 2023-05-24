@@ -1,9 +1,10 @@
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-Assets/AssetStoreTools*
+Neon Ride(Unity Project)/[Ll]ibrary/
+Neon Ride(Unity Project)/[Tt]emp/
+Neon Ride(Unity Project)/[Oo]bj/
+Neon Ride(Unity Project)/[Bb]uild/
+Neon Ride(Unity Project)/[Bb]uilds/
+Neon Ride(Unity Project)/Assets/AssetStoreTools*
+Neon Ride(Unity Project)/[Ll]ogs/
 
 # Visual Studio cache directory
 .vs/
@@ -35,3 +36,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.aab

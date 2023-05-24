@@ -62,8 +62,15 @@ public class GameController : MonoBehaviour
     public void GameWin()
     {
         obsMan.DisableAll();
-        PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
-        LoadLevel(PlayerPrefs.GetInt("level"));
+        int level = PlayerPrefs.GetInt("level");
+
+        if (level > 30)
+            level = 15;
+        else
+            level++;
+
+        PlayerPrefs.SetInt("level", level);
+        LoadLevel(level);
     }
     //Called by button from game over menu
     public void RestartGame()
@@ -211,32 +218,32 @@ public class GameController : MonoBehaviour
                 break;
             case 25:
                 tunel.SetSpeed(15);
-                PlayerPrefs.SetInt("levelScore", 175);
+                PlayerPrefs.SetInt("levelScore", 150);
                 insideChanger.changeColor(new Color(0.25f, 1, 0, 1));
                 break;
             case 26:
                 tunel.SetSpeed(16);
-                PlayerPrefs.SetInt("levelScore", 175);
+                PlayerPrefs.SetInt("levelScore", 150);
                 insideChanger.changeColor(new Color(0.5f, 1, 0, 1));
                 break;
             case 27:
                 tunel.SetSpeed(17);
-                PlayerPrefs.SetInt("levelScore", 175);
+                PlayerPrefs.SetInt("levelScore", 150);
                 insideChanger.changeColor(new Color(0.75f, 1, 0.25f, 1));
                 break;
             case 28:
                 tunel.SetSpeed(18);
-                PlayerPrefs.SetInt("levelScore", 175);
+                PlayerPrefs.SetInt("levelScore", 150);
                 insideChanger.changeColor(new Color(1, 1, 0.5f, 1));
                 break;
             case 29:
                 tunel.SetSpeed(19);
-                PlayerPrefs.SetInt("levelScore", 175);
+                PlayerPrefs.SetInt("levelScore", 150);
                 insideChanger.changeColor(new Color(1, 1, 0.75f, 1));
                 break;
             case 30:
                 tunel.SetSpeed(20);
-                PlayerPrefs.SetInt("levelScore", 200);
+                PlayerPrefs.SetInt("levelScore", 150);
                 insideChanger.changeColor(new Color(1, 1, 1, 1));
                 break;
             default:
